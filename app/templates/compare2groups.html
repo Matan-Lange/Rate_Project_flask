@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Market Page
+{% endblock %}
+
+{% block content %}
+
+<br>
+<body class="text-center">
+<div class="container border border-dark">
+    <form method="POST" class="form-register" style="color:black">
+        {{form.hidden_tag()}}
+        <h3> שלום </h3>
+        <br>
+        <h6> המערכת זיההתה על סמך הזנת הציונים שהגשת </h6>
+        <h6>כי פרויקט {{groupnum}}, {{group_name}} ופרויקט {{compare_group}}, {{compare_name}} בעלות דירוג זהה</h6>
+        <br><br>
+        <h6>?מי לדעתך מיטבית יותר</h6>
+
+        {% for subfield in form.select %}
+        <tr>
+            <td>{{ subfield(class="btn") }}</td>
+            <td>{{ subfield.label}}</td>
+        </tr>
+        {% endfor %}
+        {{form.submit(class="btn btn-lg btn-block btn-primary")}}
+        </form>
+</div>
+</body>
+
+{% endblock %}

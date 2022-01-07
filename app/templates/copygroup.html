@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+group page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+<h1>{{group}} מספר קבוצה מציגה</h1>
+<h6 class="text-right">{{date}}: תאריך</h6>
+<h6 class="text-right">שעה: {{time}}</h6>
+
+
+<div class="container">
+    <form method="POST" class="" style="color:black">
+        {{form.hidden_tag()}}
+
+        <h1 class="h3 mb-3 font-weight-normal">
+            דירוג
+        </h1>
+
+        <br>
+
+        <h1>{{questions[0].description}}</h1>
+        {% for subfield in form.q1 %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label}}</td>
+        </tr>
+        {% endfor %}
+        <br>
+
+
+        <h1>{{questions[1].description}}</h1>
+        {% for subfield in form.q2 %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label}}</td>
+        </tr>
+        {% endfor %}
+
+        <br>
+
+        <h1>{{questions[2].description}}</h1>
+        {% for subfield in form.q3 %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label}}</td>
+        </tr>
+        {% endfor %}
+
+        <br>
+
+        <h1>{{questions[3].description}}</h1>
+        {% for subfield in form.q4 %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label}}</td>
+        </tr>
+        {% endfor %}
+
+
+        <br>
+        <br>
+        {{form.submit(class="btn btn-lg btn-primary")}}
+
+
+    </form>
+</div>
+</body>
+
+
+{% endblock %}

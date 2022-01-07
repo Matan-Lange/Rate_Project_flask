@@ -1,0 +1,75 @@
+<body dir="rtl" style="font-family: Helvetica">
+
+{% for item in pdf_data%}
+<img src="data:image/png;base64,{{ img_string }}" style="float: right">
+<h5 style="float: left">המחלקה להנדסת תעשייה וניהול</h5>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div dir="rtl" style='page-break-after: always; display:block; font-family:david'>
+    <div style="text-align:center ; background-color:yellow ; border-top:1px solid red; border-bottom:1px solid red">
+        <p style="display:inline-block">פרויקט גמר </p>
+        <p style="display:inline-block"> &emsp;</p>
+        <p style="display:inline-block"> תשפ"ב </p>
+        <p style="display:inline-block"> &emsp;</p>
+        <p style="display:inline-block"> תאריך: {{date}} </p>
+    </div>
+
+
+    <br>
+
+
+    <p>שם הסטודנט: {{full_name}}&emsp; תז: {{current_user.username}}</p>
+    <p></p>
+    <!--
+        <p>הסטודנט הנותן חוות דעת: <br><br>&emsp; &emsp; &emsp;
+            שם הסטודנט: {{full_name}}  &emsp; תז: {{current_user.username}}<br> </p>
+
+
+        <p>הסטודנט הנותן חוות דעת:</p>
+
+        <div style="display:block">
+            <p style="display:inline-block"> שם הסטודנט: {{full_name}}</p>
+            <p style="display:inline-block"> &emsp;</p>
+            <p style="display:inline-block"> תז: {{current_user.username}}</p>
+        </div>
+    -->
+
+    <p> שם פרויקט: {{item[1].name}} &emsp; מס פרויקט: {{item[0].group}}</p>
+
+    <!--
+      <p>פרטי הפרויקט המוצג:<br><br>&emsp; &emsp; &emsp;
+        שם פרויקט: {{item[1].name}} &emsp; מס פרויקט: {{item[0].group}}</p>
+
+      <p>פרטי הפרויקט המוצג:</p>
+
+      <div style="display:block">
+          <p style="display:inline-block"> מס פרויקט: {{item[0].group}}</p>
+          <p style="display:inline-block"> &emsp;</p>
+          <p style="display:inline-block"> שם פרויקט: {{item[1].name}}</p>
+      </div>
+  -->
+    <h3 style="text-align:center; text-decoration: underline"> משוב אישי</h3>
+
+    <p style="text-decoration: underline">{{questions[0]}}</p>
+    {{item[0].q1}}
+    <p style="text-decoration: underline">{{questions[1]}}</p>
+    {{item[0].q2}}
+    <p style="text-decoration: underline">{{questions[2]}}</p>
+    {{item[0].q3}}
+    <p style="text-decoration: underline">{{questions[3]}}</p>
+    {{item[0].q4}}
+    <p style="text-decoration: underline">{{questions[4]}}</p>
+    {{item[0].q5}}
+</div>
+{%endfor%}
+
+
+</body>

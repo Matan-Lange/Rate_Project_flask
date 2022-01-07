@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Market Page
+{% endblock %}
+
+{% block content %}
+
+
+<body class="text-center">
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center"  >
+<br>
+<h1 class="font-weight-normal"> :מספרי הקבוצות המציגות היום</h1>
+<br>
+<br>
+
+    {% set mylist = [] %}
+    {% for item in items %}
+        {% if item not in submited_groups%}
+
+
+        <a class="btn btn-lg btn-block btn-primary mb-1 " href="{{url_for('rate_page',groupnum = item )}}" >קבוצה {{item}}<br>יש להשלים הזנת משוב</a >
+
+
+        {% else %}
+        <a class="btn btn-lg btn-secondary mb-1 btn-block"  href="{{url_for('change_text',groupnum = item )}}" >קבוצה {{item}}<br> משוב הוזן</a>
+
+
+
+
+        {% endif %}
+    {% endfor %}
+    <br>
+    <br>
+
+
+{% if items == submited_groups %}
+<a class="btn btn-lg btn-danger btn-block mb-1"  href="{{url_for('download_pdf')}}" >הורדת משובים</a>
+{% endif %}
+
+
+</div>
+</body>
+
+
+
+
+
+
+{% endblock %}
